@@ -1,0 +1,10 @@
+:root{--x7lk6cs:calc(var(--spacing-Full) + var(--spacing-Half));--x57jsby:var(--spacing-Full);--xuudaiz:var(--spacing-Half);--xgx6g7s:var(--spacing-Quarter);--xw3bz76:2px;--xpxh7pw:var(--spacing-GoldenUnit);}
+:root{--xlsgbtb:var(--colors-PrimaryBlue);--x1ycuuv6:var(--colors-PrimaryBlueHover);--x4ya1z1:var(--colors-ContrastNeutral);--x10qzjlw:var(--colors-Warn);--x1f4qrrq:var(--colors-Error);}
+.xiplo1c:not(#\#){border-radius:var(--xw3bz76)}
+.xnfjsdl:not(#\#){gap:var(--xuudaiz)}
+.xqu7kxq:not(#\#):not(#\#){box-shadow:0 0 0 2px var(--x10qzjlw)}
+.x1h6gzvc:not(#\#):not(#\#){cursor:not-allowed}
+.x78zum5:not(#\#):not(#\#){display:flex}
+.xdt5ytf:not(#\#):not(#\#){flex-direction:column}
+.x190dgpg:not(#\#):not(#\#){opacity:.65}
+.x1g8rrie:where(*) *:not(#\#):not(#\#){pointer-events:none}

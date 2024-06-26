@@ -1,0 +1,17 @@
+Neos:
+  Neos:
+    Ui:
+      resources:
+        javascript:
+          Carbon.Editor.RelativeDate:
+            resource: resource://Carbon.Editor.RelativeDate/Public/Plugin.js
+            attributes:
+              type: 'module'
+        stylesheets:
+          Carbon.Editor.RelativeDate:
+            resource: resource://Carbon.Editor.RelativeDate/Public/Plugin.css
+    userInterface:
+      translation:
+        autoInclude:
+          Carbon.Editor.RelativeDate:
+            - Main

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file
+        original=""
+        product-name="Carbon.Editor.RelativeDate"
+        source-language="en"
+        target-language="de"
+        datatype="plaintext"
+    >
+        <body>
+            <trans-unit id="currentDate" xml:pace="preserve">
+                <source>current date</source>
+                <target>aktuelles Datum</target>
+            </trans-unit>
+            <trans-unit id="inTheFuture" xml:pace="preserve">
+                <source>in the future</source>
+                <target>in der Zukunft</target>
+            </trans-unit>
+            <trans-unit id="inThePast" xml:pace="preserve">
+                <source>in the past</source>
+                <target>in der Vergangenheit</target>
+            </trans-unit>
+            <trans-unit id="year" xml:pace="preserve">
+                <source>Year</source>
+                <target>Jahr</target>
+            </trans-unit>
+            <trans-unit id="years" xml:space="preserve">
+                <source>Years</source>
+                <target>Jahre</target>
+            </trans-unit>
+            <trans-unit id="month" xml:pace="preserve">
+                <source>Month</source>
+                <target>Monat</target>
+            </trans-unit>
+            <trans-unit id="months" xml:space="preserve">
+                <source>Months</source>
+                <target>Monate</target>
+            </trans-unit>
+            <trans-unit id="week" xml:pace="preserve">
+                <source>Week</source>
+                <target>Woche</target>
+            </trans-unit>
+            <trans-unit id="weeks" xml:space="preserve">
+                <source>Weeks</source>
+                <target>Wochen</target>
+            </trans-unit>
+            <trans-unit id="day" xml:pace="preserve">
+                <source>Day</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="days" xml:space="preserve">
+                <source>Days</source>
+                <target>Tage</target>
+            </trans-unit>
+            <trans-unit id="reset" xml:space="preserve">
+                <source>Reset</source>
+                <target>Zurücksetzen</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

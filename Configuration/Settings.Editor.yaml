@@ -1,0 +1,7 @@
+Neos:
+  Neos:
+    Ui:
+      frontendConfiguration:
+        Carbon.Editor.RelativeDate:
+          allowFuture: true
+          allowPast: true
