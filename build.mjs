@@ -13,8 +13,7 @@ const options = {
     minify: true,
     sourcemap: true,
     target: "es2020",
-    format: "esm",
-    splitting: true,
+    format: "iife",
     legalComments: "none",
     entryPoints: {
         Plugin: "Resources/Private/Editor/manifest.ts",
