@@ -1,4 +1,7 @@
 Neos:
+  Fusion:
+    defaultContext:
+      Carbon.RelativeDate: 'Carbon\Editor\RelativeDate\EelHelper'
   Neos:
     Ui:
       resources:
