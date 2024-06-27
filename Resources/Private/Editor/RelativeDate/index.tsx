@@ -71,6 +71,14 @@ function Editor(props) {
             return;
         }
 
+        if (newValue.amount === 0) {
+            commit({
+                amount: 0,
+                unit: "day",
+            });
+            return;
+        }
+
         commit(newValue);
     }, [amount, unit, tense]);
 
