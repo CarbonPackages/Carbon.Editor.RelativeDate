@@ -9,8 +9,32 @@
     >
         <body>
             <trans-unit id="currentDate" xml:pace="preserve">
-                <source>current date</source>
-                <target>aktuelles Datum</target>
+                <source>Current time</source>
+                <target>Aktueller Zeitpunkt</target>
+            </trans-unit>
+            <trans-unit id="currentDate.minute" xml:pace="preserve">
+                <source>current minute</source>
+                <target>aktuelle Minute</target>
+            </trans-unit>
+            <trans-unit id="currentDate.hour" xml:pace="preserve">
+                <source>current hour</source>
+                <target>aktuelle Stunde</target>
+            </trans-unit>
+            <trans-unit id="currentDate.day" xml:pace="preserve">
+                <source>current day</source>
+                <target>aktueller Tag</target>
+            </trans-unit>
+            <trans-unit id="currentDate.week" xml:pace="preserve">
+                <source>current week</source>
+                <target>aktuelle Woche</target>
+            </trans-unit>
+            <trans-unit id="currentDate.month" xml:pace="preserve">
+                <source>current month</source>
+                <target>aktueller Monat</target>
+            </trans-unit>
+            <trans-unit id="currentDate.year" xml:pace="preserve">
+                <source>current year</source>
+                <target>aktuelles Jahr</target>
             </trans-unit>
             <trans-unit id="inTheFuture" xml:pace="preserve">
                 <source>in the future</source>
@@ -51,6 +75,22 @@
             <trans-unit id="days" xml:space="preserve">
                 <source>Days</source>
                 <target>Tage</target>
+            </trans-unit>
+            <trans-unit id="hour" xml:pace="preserve">
+                <source>Hour</source>
+                <target>Stunde</target>
+            </trans-unit>
+            <trans-unit id="hours" xml:pace="preserve">
+                <source>Hours</source>
+                <target>Stunden</target>
+            </trans-unit>
+            <trans-unit id="minute" xml:pace="preserve">
+                <source>Minute</source>
+                <target>Minute</target>
+            </trans-unit>
+            <trans-unit id="minutes" xml:pace="preserve">
+                <source>Minutes</source>
+                <target>Minuten</target>
             </trans-unit>
             <trans-unit id="reset" xml:space="preserve">
                 <source>Reset</source>

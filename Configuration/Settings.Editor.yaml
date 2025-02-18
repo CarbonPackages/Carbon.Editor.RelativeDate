@@ -3,5 +3,12 @@ Neos:
     Ui:
       frontendConfiguration:
         Carbon.Editor.RelativeDate:
+          timeSpans:
+            minute: false
+            hour: false
+            day: true
+            week: true
+            month: true
+            year: true
           allowFuture: true
           allowPast: true

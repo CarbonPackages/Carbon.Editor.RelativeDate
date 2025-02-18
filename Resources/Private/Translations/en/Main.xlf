@@ -8,7 +8,25 @@
     >
         <body>
             <trans-unit id="currentDate" xml:pace="preserve">
-                <source>current date</source>
+                <source>No time period selected</source>
+            </trans-unit>
+            <trans-unit id="currentDate.minute" xml:pace="preserve">
+                <source>current minute</source>
+            </trans-unit>
+            <trans-unit id="currentDate.hour" xml:pace="preserve">
+                <source>current hour</source>
+            </trans-unit>
+            <trans-unit id="currentDate.day" xml:pace="preserve">
+                <source>current day</source>
+            </trans-unit>
+            <trans-unit id="currentDate.week" xml:pace="preserve">
+                <source>current week</source>
+            </trans-unit>
+            <trans-unit id="currentDate.month" xml:pace="preserve">
+                <source>current month</source>
+            </trans-unit>
+            <trans-unit id="currentDate.year" xml:pace="preserve">
+                <source>current year</source>
             </trans-unit>
             <trans-unit id="inTheFuture" xml:pace="preserve">
                 <source>in the future</source>
@@ -39,6 +57,18 @@
             </trans-unit>
             <trans-unit id="days" xml:space="preserve">
                 <source>Days</source>
+            </trans-unit>
+            <trans-unit id="hour" xml:pace="preserve">
+                <source>Hour</source>
+            </trans-unit>
+            <trans-unit id="hours" xml:pace="preserve">
+                <source>Hours</source>
+            </trans-unit>
+            <trans-unit id="minute" xml:pace="preserve">
+                <source>Minute</source>
+            </trans-unit>
+            <trans-unit id="minutes" xml:pace="preserve">
+                <source>Minutes</source>
             </trans-unit>
             <trans-unit id="reset" xml:space="preserve">
                 <source>Reset</source>

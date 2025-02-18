@@ -4,11 +4,11 @@
 
 ## Prettier files
 prettier:
-	@pnpm prettier --write --no-error-on-unmatched-pattern '**/*.{yaml,ts,tsx,mjs,js,md}'
+	@pnpm prettier --write --no-error-on-unmatched-pattern '**/*.{yaml,js,jsx,mjs,js,md}'
 
 ## Watch for changes in files and run prettier
 prettier-watch:
-	@pnpm onchange '**/*.{yaml,ts,tsx,mjs,js,md}' -- pnpm prettier --write --ignore-unknown {{changed}}
+	@pnpm onchange '**/*.{yaml,js,jsx,mjs,js,md}' -- pnpm prettier --write --ignore-unknown {{changed}}
 
 ## Install dependencies and build editor
 production: install prettier build

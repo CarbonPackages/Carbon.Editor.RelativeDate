@@ -15,6 +15,14 @@ const defaultOptions = {
     allowEmpty: true,
     allowFuture: true,
     allowPast: true,
+    timeSpans: {
+        minute: false,
+        hour: false,
+        day: true,
+        week: true,
+        month: true,
+        year: true,
+    },
 };
 
 const styles = stylex.create({
@@ -44,11 +52,15 @@ const styles = stylex.create({
 function Editor(props) {
     const options = { ...defaultOptions, ...props.config, ...props.options };
     const { value, commit, highlight, i18nRegistry, id } = props;
-    const { disabled, allowEmpty, allowFuture, allowPast } = options;
+    const { disabled, allowEmpty, allowFuture, allowPast, timeSpans } = options;
+    const units = Object.entries(timeSpans)
+        .map(([unit, enabled]) => (enabled ? unit : false))
+        .filter(Boolean);
+    const firstUnit = units[0];
 
     const hasAmount = typeof value?.amount == "number";
     const [amount, setAmount] = useState(hasAmount ? Math.abs(value.amount) : "");
-    const [unit, setUnit] = useState(value?.unit || "day");
+    const [unit, setUnit] = useState(value?.unit || firstUnit);
     const [tense, setTense] = useState(hasAmount ? (value.amount < 0 ? -1 : 1) : allowFuture ? 1 : -1);
     const plural = amount == 1 ? "" : "s";
 
@@ -63,19 +75,11 @@ function Editor(props) {
 
         const newValue = {
             amount: tense * amount,
-            unit,
+            unit: unit || firstUnit,
         };
 
         // Check equality
         if (value?.amount === newValue.amount && value?.unit === newValue.unit) {
-            return;
-        }
-
-        if (newValue.amount === 0) {
-            commit({
-                amount: 0,
-                unit: "day",
-            });
             return;
         }
 
@@ -87,7 +91,7 @@ function Editor(props) {
             ? {
                   value: -1,
                   label: i18nRegistry.translate(
-                      `Carbon.Editor.RelativeDate:Main:${amount ? "inThePast" : "currentDate"}`,
+                      `Carbon.Editor.RelativeDate:Main:${amount ? "inThePast" : amount === "" ? "currentDate" : `currentDate.${unit}`}`,
                   ),
               }
             : null,
@@ -95,13 +99,13 @@ function Editor(props) {
             ? {
                   value: 1,
                   label: i18nRegistry.translate(
-                      `Carbon.Editor.RelativeDate:Main:${amount ? "inTheFuture" : "currentDate"}`,
+                      `Carbon.Editor.RelativeDate:Main:${amount ? "inTheFuture" : amount === "" ? "currentDate" : `currentDate.${unit}`}`,
                   ),
               }
             : null,
     ].filter(Boolean);
 
-    const unitOptions = ["day", "week", "month", "year"].map((value) => ({
+    const unitOptions = units.map((value) => ({
         value,
         label: i18nRegistry.translate(`Carbon.Editor.RelativeDate:Main:${value}${plural}`),
     }));
@@ -113,7 +117,7 @@ function Editor(props) {
                     id={id}
                     type="text"
                     value={amount}
-                    onChange={(value: string) => {
+                    onChange={(value) => {
                         const number = parseInt(value);
                         if (isNaN(number)) {
                             setAmount(allowEmpty ? "" : 0);
@@ -122,10 +126,20 @@ function Editor(props) {
                         setAmount(Math.abs(number));
                     }}
                 />
-                <SelectBox options={unitOptions} value={unit} onValueChange={setUnit} disabled={!amount} />
+                <SelectBox
+                    options={unitOptions}
+                    value={unit}
+                    onValueChange={setUnit}
+                    disabled={!amount && amount !== 0}
+                />
             </div>
             <div {...stylex.props(styles.row)}>
-                <SelectBox options={tenseOptions} value={tense} onValueChange={setTense} disabled={!amount} />
+                <SelectBox
+                    options={tenseOptions}
+                    value={tense}
+                    onValueChange={setTense}
+                    disabled={!amount || !allowPast || !allowFuture}
+                />
                 {allowEmpty && (
                     <IconButton
                         style="light"

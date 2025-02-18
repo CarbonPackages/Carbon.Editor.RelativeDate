@@ -1,5 +1,5 @@
 import esbuild from "esbuild";
-import extensibilityMap from "@neos-project/neos-ui-extensibility/extensibilityMap.json" assert { type: "json" };
+import extensibilityMap from "@neos-project/neos-ui-extensibility/extensibilityMap.json" with { type: "json" };
 import stylexPlugin from "@stylexjs/esbuild-plugin";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -11,12 +11,12 @@ const options = {
     logLevel: "info",
     bundle: true,
     minify: true,
-    sourcemap: true,
+    sourcemap: false,
     target: "es2020",
     format: "iife",
     legalComments: "none",
     entryPoints: {
-        Plugin: "Resources/Private/Editor/manifest.ts",
+        Plugin: "Resources/Private/Editor/manifest.js",
     },
     loader: {
         ".js": "tsx",
@@ -25,14 +25,11 @@ const options = {
     alias: extensibilityMap,
     plugins: [
         stylexPlugin({
+            classNamePrefix: "newsletter-",
+            useCSSLayers: false,
             dev: false,
             generatedCSSFileName: path.resolve(__dirname, "Resources/Public/Plugin.css"),
             stylexImports: ["@stylexjs/stylex"],
-            treeshakeCompensation: true,
-            unstable_moduleResolution: {
-                type: "commonJS",
-                rootDir: __dirname,
-            },
         }),
     ],
 };
