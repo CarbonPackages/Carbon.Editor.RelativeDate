@@ -10,7 +10,7 @@ Neos:
             resource: resource://Carbon.Editor.RelativeDate/Public/Plugin.js
         stylesheets:
           Carbon.Editor.RelativeDate:
-            resource: resource://Carbon.Editor.RelativeDate/Public/Plugin.css
+            resource: resource://Carbon.Editor.RelativeDate/Public/stylex.css
     userInterface:
       translation:
         autoInclude:

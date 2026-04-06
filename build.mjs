@@ -1,17 +1,17 @@
 import esbuild from "esbuild";
 import extensibilityMap from "@neos-project/neos-ui-extensibility/extensibilityMap.json" with { type: "json" };
-import stylexPlugin from "@stylexjs/esbuild-plugin";
-import path from "path";
-import { fileURLToPath } from "url";
+import stylex from "@stylexjs/unplugin";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const watch = process.argv.includes("--watch");
+const dev = process.argv.includes("--dev");
+const minify = !dev && !watch;
 
 /** @type {import("esbuild").BuildOptions} */
 const options = {
     logLevel: "info",
     bundle: true,
-    minify: true,
-    sourcemap: false,
+    minify: minify,
+    sourcemap: watch,
     target: "es2020",
     format: "iife",
     legalComments: "none",
@@ -23,19 +23,26 @@ const options = {
     },
     outdir: "Resources/Public",
     alias: extensibilityMap,
+    metafile: true,
     plugins: [
-        stylexPlugin({
-            classNamePrefix: "newsletter-",
+        stylex.esbuild({
             useCSSLayers: false,
-            dev: false,
-            generatedCSSFileName: path.resolve(__dirname, "Resources/Public/Plugin.css"),
-            stylexImports: ["@stylexjs/stylex"],
+            classNamePrefix: "relativedate-",
+            dev,
+            lightningcssOptions: {
+                minify,
+            },
         }),
     ],
 };
 
-// eslint-disable-next-line no-undef
-if (process.argv.includes("--watch")) {
+if (minify) {
+    options.drop = ["debugger"];
+    options.pure = ["console.log"];
+    options.dropLabels = ["DEV"];
+}
+
+if (watch) {
     esbuild.context(options).then((ctx) => ctx.watch());
 } else {
     esbuild.build(options);
